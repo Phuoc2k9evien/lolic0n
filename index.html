@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laygate</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm/css/xterm.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #282c34;
+            color: #61dafb;
+            font-family: monospace;
+            margin: 0;
+        }
+        #clock {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #vga-frame {
+            width: 80vw;
+            height: 40vh;
+            background-color: #000;
+            border: 2px solid #61dafb;
+        }
+    </style>
+</head>
+<body>
+    <pre id="clock"></pre>
+    
+    <div id="vga-frame"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/xterm/lib/xterm.js"></script>
+    <script>
+        // Cài đặt đồng hồ
+        function updateClock() {
+            const now = new Date();
+            const formattedTime = now.toLocaleTimeString('vi-VN');
+            document.getElementById('clock').textContent = formattedTime;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock(); // Gọi hàm ngay lần đầu để hiển thị thời gian ngay lập tức
+
+        // Cài đặt khung xterm để hiển thị logo Android
+        const terminal = new Terminal();
+        terminal.open(document.getElementById('vga-frame'));
+
+        const androidLogo = `
+      Wellcome to my Website
+
+        terminal.write(androidLogo);
+    </script>
+</body>
+</html>
