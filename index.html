@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laygate</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm/css/xterm.css">
     <style>
         body {
             display: flex;
@@ -12,30 +11,51 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .light {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .dark {
             background-color: #282c34;
             color: #61dafb;
-            font-family: monospace;
-            margin: 0;
         }
         #clock {
             font-size: 24px;
-            text-align: center;
             margin-bottom: 20px;
         }
-        #vga-frame {
-            width: 80vw;
-            height: 40vh;
-            background-color: #000;
-            border: 2px solid #61dafb;
+        #info {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .light button {
+            background-color: #61dafb;
+            color: #000;
+        }
+        .dark button {
+            background-color: #444c56;
+            color: #fff;
         }
     </style>
 </head>
-<body>
-    <pre id="clock"></pre>
-    
-    <div id="vga-frame"></div>
+<body class="light">
+    <div id="clock"></div>
+    <div id="info">
+        <h2>Thông tin</h2>
+        <p>Xin Chào Đến Với Trang Laygate ở đây là nơi lưu trữ Các Tài Liệu</p>
+    </div>
+    <button id="theme-toggle">Sáng|Tối</button>
 
-    <script src="https://cdn.jsdelivr.net/npm/xterm/lib/xterm.js"></script>
     <script>
         // Cài đặt đồng hồ
         function updateClock() {
@@ -47,14 +67,14 @@
         setInterval(updateClock, 1000);
         updateClock(); // Gọi hàm ngay lần đầu để hiển thị thời gian ngay lập tức
 
-        // Cài đặt khung xterm để hiển thị logo Android
-        const terminal = new Terminal();
-        terminal.open(document.getElementById('vga-frame'));
-
-        const androidLogo = `
-      Wellcome to my Website
-
-        terminal.write(androidLogo);
+        // Chuyển đổi chủ đề
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            document.body.classList.toggle('light');
+            themeToggle.textContent = 
+                document.body.classList.contains('dark') ? 'Chuyển về chủ đề sáng' : 'Chuyển về chủ đề tối';
+        });
     </script>
 </body>
 </html>
