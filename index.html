@@ -48,6 +48,26 @@
         }
     </style>
 </head>
+    <button id="toggle-button">Hiện/Ẩn Menu</button>
+    <div id="menu-frame">
+        <h3>Menu</h3>
+        <a href="#link1">Liên kết 1</a>
+        <a href="#link2">Liên kết 2</a>
+        <a href="#link3">Liên kết 3</a>
+        <a href="#link4">Liên kết 4</a>
+    </div>
+
+    <script>
+        const menuFrame = document.getElementById('menu-frame');
+        const toggleButton = document.getElementById('toggle-button');
+
+        toggleButton.addEventListener('click', () => {
+            if (menuFrame.style.left === '0px') {
+                menuFrame.style.left = '-220px'; // Ẩn menu
+            } else {
+                menuFrame.style.left = '0px'; // Hiện menu
+            }
+        });
 <body class="light">
     <div id="clock"></div>
     <div id="info">
