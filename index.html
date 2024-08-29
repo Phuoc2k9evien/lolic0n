@@ -13,6 +13,23 @@
             height: 100vh;
             margin: 0;
             transition: background-color 0.3s, color 0.3s;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #282c34;
+            color: #ffffff;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .date {
+            font-size: 18px;
         }
         .light {
             background-color: #ffffff;
@@ -48,11 +65,21 @@
         }
     </style>
 </head>
+    <header>
+        <div class="logo">Logo</div>
+        <div class="date" id="date"></div>
+    </header>
+
+    <script>
+        function updateDate() {
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('date').textContent = now.toLocaleDateString('vi-VN', options);
         <h3>Menu</h3>
-        <a href="#link1">Liên kết 1</a>
-        <a href="#link2">Liên kết 2</a>
-        <a href="#link3">Liên kết 3</a>
-        <a href="#link4">Liên kết 4</a>
+        <a href="https://facebook.com/Phuoc2k9evn">FB</a>
+        <a href="https://tiktok.com">Tiktok</a>
+            <a href="mailto:gofan6969@gmail.com">Mail</a>
+        <a href="tel:+84985769526">Phone</a>
     </div>
 <body class="light">
     <div id="clock"></div>
