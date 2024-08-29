@@ -96,6 +96,40 @@
             themeToggle.textContent = 
                 document.body.classList.contains('dark') ? 'Light' : 'Dark';
         });
+        
+        <button class="linux-button" id="linuxButton">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/265px-Tux.svg.png" alt="Linux Logo">
+       Giả Lập Linux 
+    </button>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="dialog" id="dialog">
+        <h2>Trang Web Được Nhúng</h2>
+        <iframe src="https://phuoc2k9evien.github.io/jslinux/" width="400" height="300"></iframe>
+        <br>
+        <button class="close-button" id="closeButton">Đóng</button>
+    </div>
+
+    <script>
+        const linuxButton = document.getElementById('linuxButton');
+        const dialog = document.getElementById('dialog');
+        const overlay = document.getElementById('overlay');
+        const closeButton = document.getElementById('closeButton');
+
+        linuxButton.addEventListener('click', () => {
+            dialog.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+
+        closeButton.addEventListener('click', () => {
+            dialog.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+
+        overlay.addEventListener('click', () => {
+            dialog.style.display = 'none';
+            overlay.style.display = 'none';
+        });
     </script>
 </body>
 </html>
